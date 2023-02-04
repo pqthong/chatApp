@@ -16,6 +16,7 @@ class SignInPage extends GetView<SignInController> {
   Widget _buiidThirdPartyLogin() {
     return Container(
       width: 295.w,
+      margin: EdgeInsets.only(bottom: 280.h),
       child: Column(
         children: [
           Text(
@@ -26,9 +27,15 @@ class SignInPage extends GetView<SignInController> {
                 fontWeight: FontWeight.w400),
             textAlign: TextAlign.center,
           ),
-          Padding(padding: EdgeInsets.only(top: 30.h, left: 50.w, right: 50.w),
-          child: btnFlatButtonWidget(onPressed: null,
-          width: 200.w, height: 55.h),
+          Padding(
+            padding: EdgeInsets.only(top: 30.h, left: 50.w, right: 50.w),
+            child: btnFlatButtonWidget(
+                onPressed: () {
+                  controller.handleSignIn();
+                },
+                width: 200.w,
+                height: 55.h,
+                title: "Google login"),
           )
         ],
       ),
@@ -86,7 +93,7 @@ class SignInPage extends GetView<SignInController> {
     return Scaffold(
         body: Center(
       child: Column(
-        children: [_buildLogo(), _buiidThirdPartyLogin()],
+        children: [_buildLogo(), Spacer(), _buiidThirdPartyLogin()],
       ),
     ));
   }
