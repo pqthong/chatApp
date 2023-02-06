@@ -6,6 +6,10 @@ import 'package:get/get.dart';
 import '';
 import '../../pages/application/bindings.dart';
 import '../../pages/application/view.dart';
+import '../../pages/chat/bindings.dart';
+import '../../pages/chat/view.dart';
+import '../../pages/contact/bindings.dart';
+import '../../pages/contact/view.dart';
 import '../../pages/welcomes/index.dart';
 import '../../pages/sign_in/index.dart';
 
@@ -19,13 +23,10 @@ class AppPages {
 
   static final List<GetPage> routes = [
     GetPage(
-      name: AppRoutes.INITIAL,
-      page: () => const WelcomePage(),
-      binding: WelcomeBinding(),
-      middlewares: [
-        RouteWelcomeMiddleware(priority: 1)
-      ]
-    ),
+        name: AppRoutes.INITIAL,
+        page: () => const WelcomePage(),
+        binding: WelcomeBinding(),
+        middlewares: [RouteWelcomeMiddleware(priority: 1)]),
     GetPage(
       name: AppRoutes.SIGN_IN,
       page: () => const SignInPage(),
@@ -40,18 +41,24 @@ class AppPages {
         //RouteAuthMiddleware(priority: 1),
       ],
     ),
-    /*
 
     // 最新路由
     // 首页
-    GetPage(name: AppRoutes.Contact, page: () => ContactPage(), binding: ContactBinding()),
+    GetPage(
+        name: AppRoutes.Contact,
+        page: () => ContactPage(),
+        binding: ContactBinding()),
     //消息
+    /*
+
     GetPage(name: AppRoutes.Message, page: () => MessagePage(), binding: MessageBinding()),
     //我的
+
     GetPage(name: AppRoutes.Me, page: () => MePage(), binding: MeBinding()),
     //聊天详情
+    */
     GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
 
-    GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),*/
+    //GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),
   ];
 }

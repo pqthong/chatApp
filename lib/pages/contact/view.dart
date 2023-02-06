@@ -1,5 +1,7 @@
 import 'package:firebase_chat/common/values/colors.dart';
+import 'package:firebase_chat/common/widgets/app.dart';
 import 'package:firebase_chat/common/widgets/button.dart';
+import 'package:firebase_chat/pages/contact/widgets/contact_list.dart';
 import 'package:firebase_chat/pages/sign_in/index.dart';
 import 'package:firebase_chat/pages/welcomes/controller.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,11 +18,21 @@ class ContactPage extends GetView<ContactController> {
 
   @override
   Widget build(BuildContext context) {
+    AppBar _buildAppBar() {
+      return transparentAppBar(
+        title: Text(
+          "Contact",
+          style: TextStyle(
+              color: AppColors.primaryBackground,
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w600),
+        ),
+      );
+    }
+
     return Scaffold(
-        body: Center(
-      child: Column(
-        children: [],
-      ),
-    ));
+      appBar: _buildAppBar(),
+      body: ContactList(),
+    );
   }
 }
